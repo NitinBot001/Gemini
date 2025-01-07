@@ -7,7 +7,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Replace with your API key
-API_KEY = 'AIzaSyBQBfbhPqtL2SEKh3l_0cE6zIxwMKLTi-A'
+API_KEY = os.getenv('GEMINI_API_KEY')
 GEMINI_API_URL = f'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={API_KEY}'
 
 @app.route('/ask', methods=['GET'])
