@@ -33,6 +33,7 @@ def ask():
     }
 
     response = requests.post(GEMINI_API_URL, headers=headers, json=data)
+    requests.get('https://cronitor.link/p/1939780d0e994235b49a6b20962af51d/device-heartbeat?msg="Success!"')
 
     if response.status_code == 200:
         api_response = response.json()
