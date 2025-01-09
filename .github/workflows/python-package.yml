@@ -39,7 +39,7 @@ jobs:
     - name: Run app
       run: |
         pip install -r req.txt
-        python app.py
+        python app.py &
     - name: live api
       run: |
         sudo apt install nodejs
