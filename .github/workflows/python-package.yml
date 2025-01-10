@@ -46,6 +46,7 @@ jobs:
     - name: live api
       run: |
         sudo apt install nodejs
+        curl https://loca.lt/mytunnelpassword
         npm install -g localtunnel
         lt --port 8000
 
