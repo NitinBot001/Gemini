@@ -37,6 +37,16 @@ Response Rules:
 # Initialize Flask app
 app = Flask(__name__)
 CORS(app)
+def translate_text(text, target_lang):
+    """Translate text using SimplyTranslate API"""
+    api_url = f"https://simplytranslate.org/api/translate?to={target_lang}&text={text}&engine=google"
+    
+    try:
+        response = requests.get(api_url)
+        response.raise_for_status()
+        return response.json().get("translated_text", text)  # Return translated text or original
+    except Exception as e:
+        return f"Translation error: {str(e)}"
 
 @app.route("/chat", methods=["POST"])
 def chat():
