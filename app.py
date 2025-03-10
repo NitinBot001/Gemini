@@ -52,7 +52,7 @@ def chat():
         prompt = [
             SYSTEM_INSTRUCTION,
             f"Context Data:\n{CONTEXT_DATA}",
-            f"User Query: {user_message}"
+            f"\n\n\nUser Query: {user_message}"
         ]
         ai_response = model.generate_content(prompt).text.strip()
 
