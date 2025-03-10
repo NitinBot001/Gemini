@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 import google.generativeai as genai
 import os
-from flask-cors import CORS
+from flask_cors import CORS
 import requests
 
 # Load API key from environment variable
