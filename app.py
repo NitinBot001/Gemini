@@ -11,7 +11,7 @@ if not GEMINI_API_KEY:
 
 # Configure the Gemini AI client
 genai.configure(api_key=GEMINI_API_KEY)
-model = genai.GenerativeModel(model_name="gemini-1.5-flash")
+model = genai.GenerativeModel(model_name="gemini-2.0-flash")
 
 # Read the context file
 CONTEXT_FILE = "context.txt"
