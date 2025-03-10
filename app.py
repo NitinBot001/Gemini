@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 import google.generativeai as genai
 import os
+from flask-cors import CORS
 import requests
 
 # Load API key from environment variable
@@ -35,6 +36,7 @@ Response Rules:
 
 # Initialize Flask app
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/chat", methods=["POST"])
 def chat():
