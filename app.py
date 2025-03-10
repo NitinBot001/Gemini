@@ -1,49 +1,68 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS
-import requests
+import google.generativeai as genai
 import os
+import requests
 
+# Load API key from environment variable
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+if not GEMINI_API_KEY:
+    raise ValueError("Gemini API Key is missing. Set it in environment variables.")
+
+# Configure the Gemini AI client
+genai.configure(api_key=GEMINI_API_KEY)
+model = genai.GenerativeModel(model_name="gemini-1.5-flash")
+
+# Read the context file
+CONTEXT_FILE = "context.txt"
+try:
+    with open(CONTEXT_FILE, "r", encoding="utf-8") as file:
+        CONTEXT_DATA = file.read()
+except FileNotFoundError:
+    CONTEXT_DATA = "No context available."
+
+# System instruction for Hal (AI Assistant)
+SYSTEM_INSTRUCTION = """
+You are Hal, an AI assistant created to help farmers.
+Your goal is to analyze the crop data provided in the context file and assist farmers by answering their queries and solving their problems.
+
+Response Rules:
+1. Use the context file to answer farmer-related questions.
+2. Do not share any personal information (such as names, addresses, phone numbers, or emails).
+3. Provide only the information available in the context file.
+4. If the required information is not found in the context file, generate a helpful response based on agricultural knowledge.
+5. Keep responses simple, clear, and useful for farmers.
+"""
+
+# Initialize Flask app
 app = Flask(__name__)
 
-CORS(app)
+@app.route("/chat", methods=["POST"])
+def chat():
+    try:
+        data = request.get_json()
+        user_message = data.get("message")
+        target_lang = data.get("lang", "en")  # Default to English if no language is given
 
-# Replace with your API key
-API_KEY = os.getenv('GEMINI_API_KEY')
-GEMINI_API_URL = f'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={API_KEY}'
+        if not user_message:
+            return jsonify({"error": "Message is required"}), 400
 
-@app.route('/ask', methods=['GET'])
-def ask():
-    user_question = request.args.get('question')
-    
-    if not user_question:
-        return jsonify({"error": "No question provided"}), 400
+        # AI Processing with system instruction
+        prompt = [
+            SYSTEM_INSTRUCTION,
+            f"Context Data:\n{CONTEXT_DATA}",
+            f"User Query: {user_message}"
+        ]
+        ai_response = model.generate_content(prompt).text.strip()
 
-    headers = {'Content-Type': 'application/json'}
-    data = {
-        "system_instruction": {
-            "parts": [
-                {"text": "You are Kishan Mitra, developed by EasyFarm, is an AI assistant designed to support farmers with detailed information on crops, diseases, cures, and agricultural data. It provides insights into crop varieties, disease diagnosis, soil and water management, and sustainable farming practices. Kishan Mitra also offers market trends, financial advice, and weather forecasts, delivering personalized recommendations through a user-friendly, multilingual interface. Sourcing data from credible institutions, it ensures accurate, real-time updates while adhering to strict data privacy and ethical standards. Continuous learning and user feedback drive its ongoing improvement, making it a reliable partner for farmers in enhancing productivity and sustainability."}
-            ]
-        },
-        "contents": {
-            "parts": [
-                {"text": user_question}
-            ]
-        }
-    }
+        # Translation (if necessary)
+        if target_lang and target_lang.lower() != "en":
+            ai_response = translate_text(ai_response, target_lang)
 
-    response = requests.post(GEMINI_API_URL, headers=headers, json=data)
-    requests.get('https://cronitor.link/p/1939780d0e994235b49a6b20962af51d/device-heartbeat?msg="Success!"')
+        return jsonify({"response": ai_response})
 
-    if response.status_code == 200:
-        api_response = response.json()
-        text_response = api_response.get('candidates', [{}])[0].get('content', {}).get('parts', [{}])[0].get('text', '')
-        return jsonify({
-            "status": 200,
-            "text": text_response
-        })
-    else:
-        return jsonify({"status": response.status_code, "error": response.text}), response.status_code
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
-if __name__ == '__main__':
-    app.run(debug=True, port=8000, host="0.0.0.0")
+# Run API
+if __name__ == "__main__":
+    app.run(debug=True, host="0.0.0.0", port=5000)
