@@ -14,8 +14,11 @@ if not GEMINI_API_KEY:
 genai.configure(api_key=GEMINI_API_KEY)
 model = genai.GenerativeModel(model_name="gemini-2.0-flash")
 
-# Load context
-CONTEXT_FILE = os.path.join(os.path.dirname(__file__), "..", "context.txt")
+# Set the static folder path to the "static" folder
+STATIC_FOLDER = os.path.join(os.path.dirname(__file__), "static")
+
+# Read the context file from the static folder
+CONTEXT_FILE = os.path.join(STATIC_FOLDER, "context.txt")
 try:
     with open(CONTEXT_FILE, "r", encoding="utf-8") as file:
         CONTEXT_DATA = file.read()
@@ -35,7 +38,7 @@ Response Rules:
 """
 
 # Flask app
-app = Flask(__name__, template_folder="templates")
+app = Flask(__name__, template_folder="templates", static_folder="static")
 CORS(app)
 
 # Translator instance
@@ -76,6 +79,11 @@ def chat():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+# Required handler for Vercel
+def handler(request):
+    with app.app_context():
+        return app.full_dispatch_request()
 
+# For local testing, you can use the following:
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000, threaded=True)
