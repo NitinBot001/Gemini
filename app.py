@@ -79,10 +79,6 @@ def chat():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# Required handler for Vercel
-def handler(request):
-    with app.app_context():
-        return app.full_dispatch_request()
 
 # For local testing, you can use the following:
 if __name__ == '__main__':
