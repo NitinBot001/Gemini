@@ -1,0 +1,822 @@
+Maize Production
+for Food, Feed and Fodder
+S.D. Bamboriya
+Mukesh Choudhary
+Alla Singh
+S.L. Jat
+Sujay Rakshit
+ICAR-Indian Institute of Maize Research, PAU Campus
+Ludhiana, Punjab-141 004 ((India)
+Website: https://iimr.icar.gov.in
+Email: director.maize@icar.gov.in,pdmaize@gmail.com
+Phone: +91-161-2440047-48, Fax: +91 161 2430038
+Citation: S.D. Bamboriya, Mukesh Choudhary, Alla Singh, S.L. Jat and Sujay Rakshit.
+Maize production for food, feed and fodder. IIMR Technical Bulletin
+2020/2.Indian Institute of Maize Research, PAU Campus, Ludhiana-
+141004.
+Published in 2020
+Published by:
+ICAR-Indian Institute of Maize Research
+PAU Campus, Ludhiana, Punjab- 141 004 (India)
+Website: https://iimr.icar.gov.in
+Email: director.maize@icar.gov.in,pdmaize@gmail.com
+Phone: +91-161-2440047-48, Fax: +91 161 2430038
+Printed by:
+Azad Offset Printers : # 144, Press Site, Indl. Area-1, Chandigarh
+Tel. : 0172-4611489, 2656144, 2657144
+Email: aop144@gmail.com
+FOREWARD
+Maize (Zea mays L.), the queen of cereals, surpasses all other food crops in its ability to
+adapt to the diverse agro-ecological niches and being cultivated from 58oN to 55oS
+latitude. It is the leading cereal crop in the world with more than one billion tonne
+production. In India, it holds third rank among the cereals, after rice and wheat in terms
+of area and production. Traditionally, maize is grown as a kharif crop in India, but from
+1970s its expansion started in rabi season and later on in the spring season too. Now,
+the crop is grown round the year and in all agro-ecologies throughout India, not only for
+grain but also for specialized purposes like sweet corn, baby corn and for silage
+making.
+Maize is widely used as food, feed, fodder, industrial raw material and in recent past for
+bio-fuel production. It is a key crop in doubling farmers' income as maize can be
+integrated effectively with dairy, poultry, fisheries and piggery. Speciality corns has a
+special role in value chain development. Considering the changing food habits in India,
+the demand of maize is supposed to increase in the near future. To meet the growing
+demand, there is a need to enhance maize productivity through adoption of the best
+production practices by the maize farmers.
+I am happy to know that ICAR-Indian Institute of Maize Research, Ludhiana is
+bringing out a publication on ''Maize production for food, feed and fodder'' which have
+complete cultivation information for normal and specialty maize right from the sowing
+to harvesting. I congratulate the authors for their contributions in bringing out this
+comprehensive and important publication. I am sure that this publication will be useful
+for researcher, farmers and other stakeholders for enhancing the maize production and
+productivity in the country.
+(T R Sharma)
+E-mail:ddgcs.icar@nic.in Phone:91-11-23382545 Fax:91-11-23097003
+PREFACE
+Declining water resources, degrading soil health, higher production cost, lesser
+profitability and climate change are the major challenge before Indian agriculture.
+Resource use smart crops which can give more profit from lesser resources are need of
+the hour. Maize is one such crop with highest production potential and comparatively
+lesser water foot-prints. It is a multi-purpose crop being used as food, feed, fodder, and
+raw material for various industrial products including bio-fuels.
+Maize is the leading cereal crop in the world with more than one billion tonne
+production and in India it holds third rank after rice and wheat in terms of area and
+production. Traditionally maize in India used to be consumed as food crop. However,
+over time maize has become rather an industrial crop than food crop as over 75% of the
+maize produced in India is used for industrial purchases, mostly as feed and source of
+starches. Being industrial in nature maize can ensure higher remuneration. Further,
+specialty corns, baby corn and sweet corn with short to medium duration cropping
+period can play important role in diversification in peri-urban agricultural systems and
+nutritional garden. They fit well in integrated farming system, where the byproduct of
+specialty corn, i.e. green fodder can support livestock very well. During last 50 years,
+maize productivity has increased from around 0.99 t/ha to 3.1 t/ha but still we are far
+behind leading maize producing nations. Lesser adoption of improved production
+practices is one among the key factors contributing low productivity of Indian maize,
+besides prevalence of rainfed growing condition, limiting effects of various biotic and
+abiotic stresses among others. Improved high yielding cultivars coupled with better
+crop management is bound to increase productivity of maize in India.
+The compiled production practices of various types of maize is expected help to
+researcher, extension workers and farmers in enhancing maize production and
+productivity in the country.
+Authors
+April 2020
+Ludhiana (Punjab)
+Table of Content
+Parts Description Page No.
+Part I Introduction
+Part II Maize for grain purpose
+Irrigated kharif maize
+Rainfed kharif maize
+Irrigated rabi maize
+Irrigated spring maize
+Part III Specialty maize
+Pop corn
+Baby corn
+Sweet corn
+Maize for green cob
+Part IV Maize as fodder
+Green fodder maize
+Silage maize
+Part V Zero till and conservation agriculture based maize
+Part VI Recommended public sector maize varieties
+Maize Production for Food, Feed and Fodder
+Introduction
+Climate change has far serious implications concerning the food and nutritional security of nations
+like India where agriculture is the backbone of nation's economy and growing population is the
+biggest reason to worry. Rural India largely depends on its natural resources and farming for
+earning its livelihood and food security and climate change affects the natural ecosystem
+progressively. In future, it will be even more difficult to predict occurrences of phenomena such as
+droughts, floods, cloud bursts, etc. due to climate change. Consequently, farmers must adapt to the
+changing climate to ensure optimum crop yields and farm income. Farmers in general and small and
+marginal farmers in particular must enhance the resilience of agriculture to face the upcoming
+challenges. Transforming agriculture through adoption of climate resilient practices and
+technologies would be inevitable to stabilize agricultural production and enhance farmer's income.
+Participatory demonstration of location specific and climate smart technologies is
+necessary for enabling farmers to cope climatic variability and extreme weather phenomenon.
+Adoption and spread of these climate resilient technologies would help farmers fetch adaption
+gains and reduce the Green House Gas (GHG) emissions alongside. Considering the urgent need to
+address the issue of climate change at the farm level, Indian Council of Agricultural Research
+(ICAR) launched National Initiatives in Climate Resilient Agriculture (NICRA) in February, 2011,
+which was renamed as National Innovations in Climate Resilient Agriculture (NICRA) to
+emphasize the role of evolving innovations. Resilience is the capability of the production system to
+resist negative impacts of climate change and also the capacity to recover quickly after the damage.
+Therefore, National Innovations in Climate Resilient Agriculture (NICRA) was formulated to
+develop and demonstrate region specific improved technologies that would enhance the resilience
+of Indian agriculture to climate change thereby addressing climate vulnerability and its negative
+impacts. The emphasis on adaptation to climate variability necessitates appropriate responses to
+contingency situations. Considering the need to enhance the resilience of Indian agriculture
+production system to climate variability and climate change, the center theme should be the
+Sustainability of the production systems facing natural resource degradation. Thus, the centre of
+attraction in NICRA is not the enhancement of productivity but the ability of the existing system to
+cope with the vulnerability and to improve the natural resource use efficiency for sustaining the
+productivity gains that have been achieved already. The project aimed to enhance resilience of
+Indian agriculture to climate change and climate variability through its different components
+namely Strategic Research, Technology Demonstration, Capacity Building and
+Sponsored/Competitive Grants.
+1
+Uses of Maize
+Feed
+Approximately 60% of total maize production in India is used for preparation of concentrated feeds
+for cattle, poultry and piggery as source of energy. Fishery feed also uses maize as an important
+component. The yellow colour of maize is very useful in providing yellow colour to egg yolk and
+yellow tinge to the milk.
+Food
+Grain maize, pop corn, baby corn, sweet corn and green maize cobs are widely used as human food.
+Most commonly used forms are as Chapattis, porridges, corn flakes, boiled or roasted green ears,
+pop corn, baby corn products like salad, vegetable, pickle, pakoda, kheer, laddu and halwa; sweet
+corn products like soup, chat, corn cheese balls, masala corn and salad etc. Around 13% of total
+maize grain production in India is used as food and 7% as processed food, however this does not
+include use of specialty maize, particularly baby corn, sweet corn and green cobs.
+Industrial uses
+Maize acts as a raw material in the manufacture of starch, syrup, dextrose, oil, gelatine etc. Corn
+flour is used as a thickening agent in the preparation of many edibles like soups, sauces and custard
+powder. Corn syrup is used as sweetener in processed foods such as soft drinks and candies. Corn
+sugar (dextrose) is used in pharmaceutical formulations. Maize oil is widely used as a cooking
+medium and it has the quality of reducing cholesterol in the human blood. Maize oil has use in
+cosmetics and pain industry as well. Corn gel because of its moisture retention character is used as a
+bonding agent for ice-cream cones. Maize stalks are made into paper and wall board; husks are used
+as filling material; cobs are used directly for fuel, to make furfurol, fermentable sugars, solvents,
+liquid fuels, charcoal, pulp, paper and hard boards. Approximate 14% of total maize production in
+India is utilised for industrial purposes.
+Bio fuel and bioplastic
+Maize is also used for liquid bio-fuel (ethanol) production in USA. The ethanol is used as
+transportation fuel after blending with gasoline. India is also slowly opening up use of maize grain
+for ethanol production. The maize starch is also used for making biodegradable plastic using poly
+lactic acid (PLA) which will be very useful in the scenario of banning single use of plastic.
+Forage and silage
+Maize stalk is used to feed dairy animals in the form of green fodder, dry roughages andsilage.
+Maize fodder has higher digestibility than any other non-leguminous forage crops and it does not
+contain any toxic substances. Maize is also preferred for silage making over other fodders, as maize
+plant is easy to chaff, requires less labour and its silage is soft.
+2
+Brief Cultivation Facts
+A. Maize for grain
+A.1. Irrigated kharif maize
+Sowing time: Generally, the ideal sowing time is June 20 to end of July. However, in fields where
+water stagnation may occur, early sowing is desirable so that plant reaches a firm stand to avoid
+lodging associated with water logging.
+Soil: Maize is very sensitive to water-logging and considerable yield losses occur if, the crop faces
+water-stagnation for more than two days. Hence, it is better to plant the crop on well-drained sandy-
+loam to silty-loam soils.
+Land preparation: Maize needs well pulverized and smooth field for quick seed emergence and
+root growth. Hence, two harrowing followed by one planking is needed for field preparation and
+early season weed management. Maize can also be successfully produced under zero-till conditions
+using happy seeder or zero till multi-crop planter.
+a b
+Fig: Land preparation (a) harrowing; (b) land leveling
+Farm-equipments: Mould board plough (MB plough), disc or tine harrow, land-leveler, maize
+planter, narrow bed planter, pneumatic planter, wide bed planter etc.
+3
+a b
+c d
+Fig: Maize planting equipment (a) Ridge planter; (b) Maize planter;
+(c) Pneumatic planter; (d) Wide bed planter
+Seed rate and seed treatment: Eight kg seed of field corn is needed for seeding in one acre area.
+Seeds should be treated with any of the following fungicides and insecticides before sowing to
+protect the crop from most prevalent (seed and soil borne) diseases and insect-pests.
+1) Bavistin + Captan in 1:1 ratio@2g/kg seed for Turcicum leaf blight, Banded leaf and sheath
+blight, Maydis leaf blight etc.
+2) Apran 35 SD@4g/kg seed for Brown stripe downy mildew
+3) Captan 2.5g/kg for Pythium Stalk Rot
+4) Imidachlorpid (Gaucho) @ 6 ml/kg or Fipronil @4ml/Kg seed for termite and shoot fly.
+5) Thiamethoxam + Cyantraniliprole @ 4 ml/kg seed for fall armyworm.
+Any of the above seed treatment may be selected depending upon predominant biotic stresses.
+Sowing method: In kharif sown maize, raised bed planting is recommended to protect the crop
+from water logging. In raised bed planting, 70 cm wide ridges (40 cm ridge and 30 cm furrow) are
+prepared with the help of bed planter. Bed planter with incline plate seed metering system can
+precisely place the maize seed at required depth and does simultaneous operation of raised beds
+making and planting. One line of maize on each raised bed is desirable when sole crop of maize is
+planted keeping seed to seed spacing at 20 cm. Optimum plant density (30,000/acre) should be
+maintained to tap full potentials of hybrids. Southern side planting is advised on East-West oriented
+4
+ridges. Happy seeder or zero-till bed planters with inclined plate to be used for crop establishment
+under zero tillage or for sowing under crop residue.
+Sowing depth: For proper germination and early vigor, seed should be sown at 3.5-5.0 cm depth.
+Inter cropping: One row of either (a) Cowpea for fodder; (b) Soybean/urdbean/mungbean for
+grain; (c) Groundnut for pods, in between two consecutive rows of maize is desirable for inter-
+cropping with maize. The shade loving crops like turmeric and ginger can also be successfully
+cultivated as intercrop with maize. Herbicides should not be used for weed control in inter-cropping
+system. In case of intercropped maize slightly higher doses of fertilizers should be applied than
+sole crop.
+Irrigation management: Water requirement of maize is 500–800 mm per growing season. During
+kharif season, partially water requirement is met by rainfall. Hence, 1-4 irrigations are required,
+which may vary depending on frequency of rainfall. Adequate moisture at germination, pre-
+tasseling, silking and grain-filling stages should be ensured through irrigation, if rainfall is not
+there. If available, the sprinkler irrigation up to knee length stage is very good for maize crop. In
+ridge-sown crop, irrigation should be given in furrow up to 2/3 of height of the ridge.
+Nutrient management: Hybrid maize is very responsive to nutrient application and has slightly
+high nutrient requirement as compare to other cereals due to high yield potential. It can be grown
+both organically or by integrated nutrient management involving organic and inorganic nutrient
+supplementation.
+Organic nutrient management: Following options for nutrient management in organic maize
+production to be used based on availability in suitable combination
+l Green manuring: Green manuring crops like dhaincha/sunhemp/cowpea at 12/20/20 kg
+seed rate/acre, respectively are very useful. Fifty days old crop is to be ploughed down
+and reserve the field for 10 days for decomposition before sowing of maize.
+l Straw of summer mungbean/cowpea may be buried before sowing of maize
+l Farm yard manure/Compost @ 6 tonnes/acre or vermicompost @ 3 tonnes/acre
+l Application of Azatobacter/Azospirillum with PSB and NPK consortia for seed
+treatment @ 200 g/acre or liquid formulation @ 100 ml/acre.
+Integrated nutrient management: Application of 6 tonnes/acre well decomposed farm yard
+manure/compost mixed with Azatobacter/Azospirillum with PSB, VAM and NPK consortia @ 5-6
+kg/acre or seed treatment with Azatobacter/Azospirillum with PSB and NPK consortia @ 200 g
+each/acre or liquid formulation @ 100 ml/acre needed for better moisture retention and initial boost
+of the crop. Macro- and micro-nutrient requirements of the crop need to be accomplished through
+use of suitable fertilizers. The following schedule of fertilizer may be used:
+5
+Crop Stage Fertilizers scheduling
+Sowing (Basal) Drill full dose of P, K and 1/3 of N-fertilizer dose, micro-
+nutrient application
+Knee-high (Ist split) Top dress 1/3 N-fertilizer dose and micronutrient spray
+Pre-tasseling (2nd split) Top dressing of remaining 1/3 N-fertilizer dose and micro-
+nutrient spray
+Rate of different fertilizers
+Fertilizer (kg/acre)
+Varieties Sehedule
+Urea DAP MOP ZnSO .7H O
+Long duration Basal 23 52 27 10
+hybrid
+Ist split 44 -- -- --
+2nd split 44 -- -- --
+Short duration Basal 14 35 20 10
+hybrid, composite Ist split 26 -- -- --
+2nd split 26 -- -- --
+Maize is sensitive to Zinc deficiency. Zinc deficient crop shows stunted growth and develop short
+inter-nodes. A white (or pale-yellowish) tissue with reddish veins appears on leaf blade. To mitigate
+it 10 kg/acre ZnSO4.7H2O or 6.5 kg/acre ZnSO4.H2O should be applied at sowing. Apply 10-15
+kg Sulphar and 0.5 kg Boron/acre in deficient soils.
+Fig: Zinc deficiency symptoms in maize
+6
+Weed management: Weeds significantly affect maize production and the critical period for crop-
+weed completion is 15-45 days after sowing.
+Cultural control of weeds: a) Two manual hoeing at 15 and 30 DAS; b) Inter-cropping of one or two
+rows of fodder cowpea in between maize rows reduces weed problem considerably; c) Always use
+weed free seeds for sowing; d) Do not spread un-decomposed compost in field because it may
+contain viable weed seeds; e) Do not allow the seed formation of weeds in fields.
+Chemical control of weeds: Pre-emergence Atrazine application @ 400 g ai/acre followed by one
+hand weeding at 35-40 days gives good weed control. Recommended dose of Atrazine at pre-
+emergence followed by either of the post-emergence herbicide (mentioned below) for effective
+weed control is also equally effective.
+a b
+Fig: (a) Maize field after weeding; (b) Maize field after Tembotrione spray
+7
+Selective herbicides for maize
+Herbicide Formulations Dose Time of application (DAS)
+(g a.i./acre)
+Atrazine 50% WP 400 0-2 (pre-emergence)
+Topramezone 33.6% SC 10 20-30 (Post emergence)
+Tembotrione 34.4% SC 48 20-30 (Post emergence)
+Precautions:
+l Use flat fan nozzle for herbicide spray.
+l Do not use under/over dose of herbicide.
+l While spraying weedicide sprayed field should not be stepped on, i.e. the farmer should move
+backward or sidewards.
+Saving crop in case of excess water damage: If water logging occurs in the field and damage is
+moderate, 6 kg/acre of urea in two sprays at weekly intervals may be applied. In case of moderate to
+severe damage, 25-50 kg urea/acre after the water flooding is over may be broadcasted.
+a b
+Fig: (a) Water-logged maize field (b) Growth reduction due to water-logging
+Plant Protection
+Major diseases: Maydis Leaf Blight (MLB), Bacterial Leaf and Sheath Blight (BLSB), Charcoal
+Rot (CR), Bacterial Stalk Rot (BSR), Rajasthan Downey Mildew (RDM), Curvularia Leaf Spot
+(CLS), Post Flowering Stalk Rot (PFSR), Brown strip Downey Mildew (BSDM) and Common
+Rust are major diseases of maize.
+8
+a b c
+d e f
+g h i
+Fig: Maize diseases (a) Maydis leaf blight; (b) Charcoal Rot; (c ) Bacterial stalk rot; (d) Rajasthan
+downey mildew; (e ) Curvularia leaf spot; (f) Bacterial leaf and sheath blight ; (g) Post flowering
+stalk rot; (h) Brown strip downey mildew; (i) Common rust
+9
+Disease management in maize
+Disease Cultural control Chemical control
+Maydis Deep ploughing of previous A) Seed treatment with Bavistin + Captan
+leaf blight crop residue through in 1:1 ratio @ 2.0 g/kg seed
+B) Spray Dithan Z-78 or Zineb @ 2.4-4
+g/litre water and repeat the spray at 8-
+10 days interval
+C) Grow MLB resistance varieties, if the
+disease incidence is regular
+Bacterial Stripping of two lower leaves A) Seed treatment with Bavistin + Captan
+leaf and along with leaf sheath in 1:1 ratio @ 2.0 g/kg seed
+sheath B) Spray of Sheethmar (Validamycin) @
+blight A). Deep ploughing, 2.7 ml/litre water
+Charcoal
+B). Crop rotation
+rot
+C). Maintain proper moisture
+during flowering
+Bacterial Stripping of two lower leaves A) Seed treatment with metalaxyl
+stalk rot along with leaf sheath (Ridomil 25 WP, Apron 35 SD) @ 2.5
+Rajasthan g/kg
+A). Field sanitation
+downey B) Foliar spray of metalaxyly (Apron 35
+mildew B). Destroy infected plant FN) @ 2-2.5 g/liter of water at very first
+appearance of disease
+Curvularia A) Spray (Carbendazim 12% + mecozeb
+leaf spot 62.7%) @ 2 g/liter water 35 and 55
+DAS
+B) If zineb is available, then spray Zineb
+75% @ 2 g/liter at 35 and 55 DAS
+10
+Disease Cultural control Chemical control
+Post A) Maintain optimum plant - - -
+flowering population
+stalk rot B) Avoid excess N
+C) Follow crop rotation with
+non-host crop like soybean
+D) Manage attack of stem borer
+as their injury predisposes
+to stalk rot
+Brown A) Field sanitation A) Seed treatment with metalaxyl
+strip B) Destroy infected plants (Ridomil 25 WP, Apron 35 SD) @ 2.5
+downey g/kg
+C) Weed control
+mildew B) Foliar spray of metalaxyly (Apron 35
+D) Maintain optimum plant
+FN) @ 2-2.5 g/litre of water at very
+stand
+first appearance of disease
+E) Planting before rainy
+season
+F) Maintain low seed moisture
+(9%) at planting
+Common A) Field sanitation Spray Diathane M-45 @ 2.4-4 g/litre
+rust B) Destroy infected plants water and repeat the spray at 8-10 days
+interval
+C) Weed control
+D) Maintain optimum plant
+stand
+E) Planting before rainy
+season
+F) Maintain low seed moisture
+(9%) at planting
+Major Insect Pests: Maize stem borer, Pink stem borer, Shoot fly and Fall army worm are major
+pest of maize Among these pests, Maize stem borer occurs in kharif, Pink stem borer in rabi and
+Shoot fly in spring season.
+11
+a b
+c d
+e f
+12
+a b
+Fig: Mazie pests (a) Maize stem bore; (b) Damage symptoms Maize stem borer; (c ) Fall armyworm
+larvae; (d) Damage symptoms of FAW; (e ) Pink stem borer; (f) Damage symptoms of Pink stem
+bore; (g )Shoot fly; (h) Damage symptoms of Shoot fly
+Management of maize pests
+Pest Cultural control Chemical control Biological control
+Maize Stem Grow cowpea in Spray the crop with Use Trichocards
+Borer (Kharif between maize rows chemicals like (Trichogrammachilonis)
+season pest) and as intercrop against Chlorantraniliprole on 15 days old crop @ 3
+Pink stem borer Maize stem borer. 18.5% SC @ 60 ml cards per acre
+(rabi season pest) per acre at 15-18 DAS
+Border planting of Place a pinch of
+sorghum (3-4 rows) Carbofuran 3% G in
+around maize crop whorl of infested
+against Maize stem maize plant at initial
+borer. stage of infestation
+13
+Pest Cultural control Chemical control Biological control
+Fall Army Worm Choose cultivars Whorl application of Whorl application of
+with tough husk either of pesticide either of biological
+cover formulations at 15-25
+days after sowing
+Border planting of A) Spinetoram11.7% A) 5% NSKE or
+sorghum (3-4 rows) SC @ 0.5ml/l azadirachtin 1500
+around maize crop ppm @ 5 ml/litre
+against Maize stem B) Thiamethoxam B) Metarhizium
+borer. 12.5% + Lambda anisopliae talc
+Cyhalothrin 9.5% formulation (1x108
+ZC @ 0.25 ml/l cfu/g) @ 5g/litre
+C ) C) Nomuraea rileyi rice
+Chlorantraniliprol grain formulation
+e 18.5% SC @ 0.4 (1x108 cfu/g) @
+ml/l 3g/litre
+D) Btk formulation @
+D) E m a m e c t i n 2ml/l of water
+benzoate 5 SG @
+0.4 g/l
+Intercropping with -- Release of Tricho-
+pulses and other gramma pretiosum @
+non-host crop 50000 Or Telenomus
+remus @ 10,000 per
+acre at weekly intervals
+Shoot fly Early planting in A) Seed treatment --
+(spring) first week of with Imidacloprid
+February 600 FS (Gaucho)
+@ 6 m l / k g o r
+Thiomethoxam 30
+FS @ 8ml/kg seed.
+B) Soil application of
+Furadan (Carbo-
+furan3G) @ 8-10
+kg per acre in the
+furrow during
+sowing is also
+helpful agains
+14
+Application of nitrogen and irrigation after control measures helps in faster recovery from pest
+damage.
+Bird management: Nearly ten bird species feed and damage maize cobs. The yield loss due to bird
+feeding is huge and ranges between 10 to 40% in the case of maize crop. To reduce the damage by
+Parakeets and crows, cover maize cobs by wrapping adjacent green leaves around them on outer
+four rows of the field. Acoustic devices also available in market which keep away depredatory birds
+from fields by producing recorded sounds. These devices produce natural sound of bird predators
+and alarm call of pest birds. Thus, the pest birds avoid the broadcast area. Beside this, reflective
+ribbons also scare birds through reflection of sunlight and humming noise produced by the wind.
+Harvesting and shelling: Maize can be harvested when the husk has dried and turned brown. Apart
+from hand-picking, combined harvester may also be used for quick harvesting. After manual
+harvesting, depending upon the cultivated area, manual shellers or maize dehusker-cum-sheller or
+maize thresher may be used for separating grains from cobs.
+Fig: Combine harvesting in maize
+Grain drying: During harvesting of maize, grain moisture content is quite high (~30-35%). Due to
+higher moisture content farmers cannot get good price of their produce. Beside this, storage at high
+grain moisture creates problems of fungal infection and can cause heating and loss of germination.
+Hence, after crop harvesting, produce drying is very much essential. Portable Maize Dryer can be
+used for reducing the moisture content of the cobs. It is tractor or electricity driven, portable and
+long lasting dryer. It can dry any type of grain and do not need pre-cleaning of grains. Its drying rate
+ranges between 2-10 t/h depending on crop type, grain moisture content etc. The optimum moisture
+in grain for long-term storage should be below 14%. Sun drying of the cobs and seeds is required in
+absence of other drying options prior to marketing as moisture above optimum level reduces market
+prices and increases chance of aflatoxin contamination.
+15
+Fig: Mobile batch dryer
+Grain storage: Large scale kharif maize harvesting during October-November and rabi maize in
+April-May months, result in price drop. Hence, to fetch better price, farmers generally store their
+produce for higher profitability. But, the higher atmospheric humidity, cloudy weather and higher
+grain moisture content leads to fungal infection and physical deterioration of maize grain. Hence,
+proper drying followed by moisture proof storage are very much needed for long term storage of
+maize grains. Pusa bin and metal bin are some cost-effective and moisture proof storage structures
+which can be used by maize farmers. Pusa bin is modification of ordinary mud storage structure. It
+is rectangular in shape and constructed of bricks and earth. To make it moisture proof, a plastic film
+(700 gauge) is used all around ((inner side) of bin. It can store up to 3 tonnes of well dried grains for
+longer period with minimum loss. Metal bin is moisture proof storage structure and made of steel or
+aluminium. The bin is durable and also commercially available. Its storage capacity ranges from 1
+to 10tonnes. Hermatic cocoons are another storage container having two plastic half-joined
+together with a air tight zip. It is made up of thin and ultra low permeable plastic with 500 times
+lesser permeability to oxygen than normal plastic. The air tight container prevent development of
+storage pest as it block respiration of pest (due to low oxygen). It does not allow moisture
+movement hence also prevent aflatoxin problem.
+Store grain pest management: Rice weevil and Angoumois grain moth are major pest of maize
+during storage. Following point should keep in mind during storage.
+l The moisture content of grain should be less than 12%.
+l Clean the storage bins before using them for storage.
+l Newer grains should not be mixed with older ones.
+l Staggered sun drying with short exposure to sun spread reduces insect infestation.
+16
+l Use of plant products such as Adathoda vasica, Azadirachta indica, Vitex negundo,
+Catharanthus roseus @ 2% w/w (20g /kg seed) have been found to be effective against storage
+pests.
+A.2. Rainfed kharif maize
+Sowing time: In rainfed regions sowing time is rain dependent and should be done just after
+monsoon occurance in end of June to second fortnight of July.
+Seed rate and spacing requirement in rainfed maize
+Seed rate (kg/acre) Spacing (cm) Plant population (per acre)
+7-8 70 x 20 -25 23,134 to 28,918
+Fertilizer scheduling: Organic nutrient supplementation to be given and inorganic N fertilizers is
+to be splitted into two doses, at basal and depending on moisture availability between knee high to
+tasseling stage.
+Rate of different fertilizers needed for rainfed maize crop
+Fertilizer (kg/acre)
+Soil Type Schedule
+Urea DAP ZnSO4.7H2O
+Sandy loam to clay loam Basal 46 35 10
+soil with adequate 1st split
+moisture stored 24 -- --
+Loamy sand to sandy Basal
+35 18 --
+soils with low moisture
+1st split
+stored
+-- -- --
+Soil moisture conservation: For rainfed crops, soil moisture is the most limiting factor. Hence,
+moisture conservation practices are required to be followed to attain maximum yield.
+17
+Soil moisture conservation practice.
+l Plough the field against slope after pre-monsoon showers to enhance water
+absorption/filtration
+l Sowing and other operations should be carried out on contour/across the slope
+l Spread locally available mulching material in the last week of August
+l Application of the farm yard manure/compost @ 5-6 tonnes/acre
+Rest agronomic practices are same as discussed earlier.
+A.3. Rabi maize
+Sowing time: 15th October to 15th November is the best time, however this may vary for region to
+region.
+Sowing method: Before sowing, seed should be soaked overnight in warm (45oC at the time of seed
+soaking) water. This treatment helps in obtaining better plant stand and healthy crop. Sowing
+should be done on the southern side of the east-west ridge so that the optimum amount of sunshine is
+received and the seedbed remains warm.
+Seed rate and spacing requirement in rabi maize
+Seed rate (kg/acre) Spacing (cm) Plant population (per acre)
+20-22 60 x 20 33,333
+Intercropping: During the rabi season potato, table pea, onion, garlic, coriander, spinach,
+coriander, beetroot, cabbage etc. can be grown in between maize rows to ensure higher income of
+growers without harming the yield of winter maize.
+Fertilizer scheduling: The following fertilizer schedule should be used to get higher yield.
+Crop stage Schedule Fertilizer (kg/acre)
+Urea DAP MOP ZnSO.7HO
+4 2
+Before at sowing Basal
+26 70 40 10
+4 leaf stage 1st split 26 - - -
+8 leaf stage 2nd split 40 - - -
+Tasseling stage 3rd split 26 - - -
+Grain filling stage 4th split 6 - - -
+18
+Irrigation management: Four to six irrigations are needed for rabi season crop. If six irrigations
+are given, they should be applied as two before flowering, one at the time of flowering, two after
+flowering and one at the early grain-filling stage. If only five irrigations are given, one irrigation at
+the vegetative stage may be avoided; and if only four irrigations are given, irrigation after the dough
+stage may be avoided. The irrigation should, however be changed suitably if adequate rains are
+received. Rest management practices are similar to irrigated maize.
+A.4. Spring maize
+Sowing time: January 20 – February 20 is ideal sowing time for spring maize planting.
+Sowing method: Evaporative losses of water during spring season from the soil under flat as well
+as raised bed planting is higher and hence crop suffers from moisture stress. Under such conditions,
+it is always advisable to grow maize in furrows for proper growth, seed setting and higher
+productivity. Zero-till planning is beneficial in spring maize after harvesting of potato, mustard etc.
+Irrigation: Spring maize needs nearly 10-15 irrigations sometimes even higher as the evapo-
+transpiration demand is quite higher in summer season. Hence, a water use-efficient irrigation
+system i.e. drip method is desirable under spring sown maize. Apply first irrigation at 25-30 DAS.
+Under non-drip irrigation, apply irrigation at 2 weeks interval upto10th April and on per week basis
+after this, up to maturity. From water conservation point of view spring maize without drip
+irrigation is not recommended.
+Fertilizer scheduling: For higher yield, integrated nutrient management found beneficial for
+spring maize and organic sources option mentioned in kharif maize to be used along with chemical
+fertilizer mentioned as below:
+Rate of different fertilizers needed
+Varieties Schedule Fertilizer (kg/acre)
+Urea DAP MOP ZnSO.7HO
+4 2
+Medium duration Basal 33 55 27 10
+hybrid 1st split 33 -- --
+2nd split 33 -- --
+Medium duration Basal 25 27 27
+hybrid 1st split 25 -- --
+2nd split 25 -- --
+Rest management practices are similar to irrigated kharif maize for grain purpose.
+19
+B. Specialty corn/special purpose maize
+B.1. Pop corn
+Pop corn cultivation practices are similar to grain purpose as discussed earlier except the pop corn
+cultivars are shorter of duration (80-90 days). However, as a premier crop preferably to be grown
+under irrigated conditions. This crop needs isolation of at least 400 m from normal maize as
+pollination with normal maize deteriorates its popping quality. Generally, 10-15 days isolation in
+sowing time also ensures quality pop corn. As the plant type of the pop corn is weak and affected
+more by diseases and pest and thus should be preferably to be grown in mild climate i.e. winter
+season/hilly areas for better yield and quality.
+Seed and spacing requirement Seed and spacing requirement
+Seed rate (kg/acre) Spacing (cm) Plant population (per acre) Seed rate (kg/acre) Spacing (cm) Plant population (per acre)
+4 - 5 60 x 20 33,724 4 - 5 60 x 20 33,724
+Rest management practices are similar to irrigated maize for grain purpose.
+B.2. Baby corn
+It is shortest duration maize crop and gets ready for harvesting within two months of planting and
+harvested in 60-70 days during kharif and 80-100 days in rabi season. This crop needs isolation of at
+least 400 m from normal maize as pollination deteriorates its quality. Generally, 10-15 days
+isolation in sowing time also ensures quality baby corn. Detasseling is needed in baby corn for
+quality assurance. It is done by removing the tassel of the plant as soon as it emerges from the flag
+leaf. It should be practiced row-wise. While detasseling, leaf should not be removed which will
+otherwise affect net photosynthesis and ultimately reduce average baby corn yield. However, this is
+not needed when male sterile baby corn cultivars are chosen for cultivation. Harvesting should be
+done in morning or evening and stored under cool conditions in shed. After dehusking cobs should
+preferably kept under wrap and refrigerated. The crop should be harvested after 1-3 days of silk
+emergence. The remaining plant portion (tassels, main stem, husks) serves as nutritious green
+fodder for livestock.
+Sowing time: The sowing to be avoided in areas receiving temperature of less than 10C at any of the
+crop growth stages for higher yield of baby corn. It can be sown round the year in India expect
+second fortnight of December to end of January in Northern India.
+Seed and spacing requirement
+Seed rate (kg/acre) Spacing (cm) Plant population (per acre)
+10 - 12 60*15-20 33,724 to 44,966
+20
+Intercropping: In general, short duration varieties of intercrops to be preferred for
+intercropping with baby corn. In kharif season, cowpea for green pods and fodder purposes
+and coriander for green leaves can be intercropped with baby corn. Baby corn can be
+intercropped with vegetable crops, viz., spinach, cabbage, cauliflower, coriander, sugar
+beet, radish etc which is particularly suitable in rabi season baby corn. Recommended dose
+of fertilizers of intercrops should be applied in addition to the recommended dose of
+fertilizers of baby corn.
+Fig: Maize based intercropping
+21
+Fertilizer scheduling: Since baby corn is consumed as vegetable organically grown baby corn has
+market demand both at local and international level. The organic input mentioned for the normal
+kharif maize to be used for organic baby corn production. For higher yield integrated nutrient
+management found beneficial for baby corn and organic sources option mentioned in kharif maize
+to be used along with chemical fertilizer mentioned as below:
+Crop stage Schedule Fertilizer (kg/acre)
+Urea DAP MOP ZnSO.7HO
+4 2
+Before/at sowing Basal 10 50 40 10
+4 leaf stage 1st split 26 -- -- --
+8 leaf stage
+2nd split 40 -- -- --
+Before detasseling
+After detasseling/ 3rd split 32 -- -- --
+one picking 4th split 20 -- -- --
+Irrigation management: Young seedlings, knee high stage, silking and picking are the most
+sensitive stages for water stress for baby corn and irrigation should be ensured at these stages. Light
+and frequent irrigations are desirable for baby corn.
+Pest Management: As duration of baby corn is short, it experiences lesser extent of pest damage.
+However, as it is consumed fresh pesticides should be applied judiciously, if required.
+Rest management practices for baby corn are similar to normal irrigated maize.
+B.3. Sweet corn
+This crop gets ready for harvesting just 20 days after pollination i.e. within 65-75 days in kharif and
+80-100 days in rabi season. At high temperature due to conversion of fructose into polysaccharides
+it losses flavor. Due to this reason, sweet corn cultivation should be avoided in spring season. This
+crop needs isolation of at least 400 m from normal maize as pollination deteriorates its quality.
+Generally, 10-15 days isolation in sowing time also ensures quality sweet corn. The cobs should be
+plucked during morning or evening time. Harvested green cobs should be immediately transported
+to the cold storage in refrigerated trucks. The maize plant parts after harvesting of cobs can be
+utilized as excellent green fodder. Intercrops as discussed in baby corn can also be grown with
+sweet corn successfully for higher profitability.
+Sowing time: The sowing to be avoided in areas receiving temperature of less than 10C at any of the
+crop growth stage. At sowing, temperature below 15C may lead to rotten seed. The increase in
+temperature to more than 35C at tasseling i.e. 45-55 days after sowing leads to tassel blast and lesser
+grain setting. Therefore, sweet corn can be sown from June to October and in February in Northern
+India and throughout the year in southern India.
+22
+Seed and spacing requirement
+Seed rate (kg/acre) Spacing (cm) Plant population (per acre)
+2.5-3 75x25-30 17,986 to 21,583
+Transplanting: Due to costlier seed and lesser plant population, seedling transplanting is
+beneficial in sweet corn. The seedling should be transplanted when plants are 15-25 cm tall.
+Transplanting is also beneficial for getting early sweet corn in market for fetching higher prices.
+However, there should be adequate moisture at the time of transplanting. To avoid damage by ants
+and other insects the nursery may be treated with furadon or similar granules.
+a b
+Fig: (a) Maize nursery (b) Transplanting of maize seedlings
+Fertilizer scheduling: The organic input mentioned for the normal kharif maize can be used for
+organic sweet corn production. For higher yield, integrated nutrient management found beneficial
+and organic sources option mentioned in kharif maize to be used along with chemical fertilizer
+mentioned as below:
+Crop stage Schedule Fertilizer (kg/acre)
+Urea DAP MOP ZnSO.7HO
+4 2
+Before/at sowing Basal 45 45 30 10
+25 DAS 1st split 35 -- -- --
+At flowering 2nd split 20 -- -- --
+23
+Irrigation management: The most critical period to have adequate moisture is during tasseling
+and silking. Growers should be prepared to irrigate at least 2.5-4.0 cm a week in order to produce
+high quality sweet corn.
+Pest Management: As duration of sweet corn is short and consumed, fresh pesticides should be
+applied judiciously, if required.
+Rest management practices for sweet corn are similar to normal irrigated maize.
+B.4. Maize for green cob
+The cultivation practices are very similar to sweet corn. The cob plucking should be done at 25-35
+days after flowering, when cob colour is still green and kernel are at soft dough stage. The green
+plants are excellent source of fodder. Remaining practices are same as of sweet corn.
+24
+C. Maize as fodder
+C.1. Maize for green fodder
+Tall, leafy, succulent, late maturing and stay-green type cultivars are desirable for fodder purpose.
+Sowing should be done using normal seed drill. Weeding in generally not required as the high-
+density planting leads to less penetration of sunlight resulting in poor growth of weeds.
+Sowing time: The sowing to be avoided in areas receiving temperature of less than 10C at any of the
+crop growth stages for higher yield of fodder maize. It can be sown round the year in India expect
+second fortnight of December to end of January in Northern India. However, fodder maize is most
+profitable in kharif season, which can be used for silage preparation.
+Seed and spacing requirement
+Seed rate (kg/acre) Spacing (cm) Plant population (per acre)
+25 30*10 134,898
+Fertilizer scheduling
+Crop stage Schedule Fertilizer (kg/acre)
+Urea DAP MOP ZnSO.7HO
+4 2
+Before/at sowing Basal 55 55 30 10
+25-30 DAS 1st split 55 -- -- --
+Harvesting should be done just after flowering (at 60-70 DAS) for better quality fodder. Rest
+agronomic management practices are similar to kharif irrigated maize.
+C.2. Maize for silage making
+All the cultivation practices are similar to kharif/spring sown irrigated maize except harvesting,
+which should be done 25-30 days after flowering (milky to dough stage of grain). Harvesting of
+maize for silage purpose may be done using Fodder Auto-chopper Loader Machine. Silage can be
+prepared easily by silo pack machine. This machine can cut and crash the green fodder, load it in the
+50 kg air tight plastic bag and compress it. After this process, the bag can be sealed with thread and
+can be stored in open place for ensiling (process of silage making). These 50 kg capacity bags are
+easy to handle and transport.
+25
+D. Zero till and conservation agriculture based maize cultivation
+Under zero till (ZT) cultivation, planting is to be done in stubble of previous crop without any soil
+disturbance/tillage operation. This saves diesel, tractor's working time and labor and offer timely
+sowing of succeeding crops. Seed and fertilizers should be placed in band using zero-till Seed-cum-
+Fertilizer Planter with furrow opener or happy seeder. Weed management is entirely dependent on
+chemicals as tillage and hand hoeing is prohibited in ZT maize. Destroy the weed before seeding by
+pre-plant application (10-15 days prior to seeding) of non-selective herbicides, viz., paraquat @ 0.2
+kg a.i. per acre in 600 litre water. Under heavy weed infestation, post-emergence application of
+selective herbicides (mentioned earlier) should be done.
+ZT along with surface residue application and diversified crop rotation is known as conservation
+agriculture. Surface residue retention improves soil physical, chemical and biological activities,
+reduces soil erosion & evaporation and also moderate soil temperature. Diversified crop rotation
+break the disease cycle and also improve soil fertility. Zero till planter (under lesser residue load)
+and happy seeder (under heavy residue load) can be used for planting in no-till field.
+Difference in management practices under conventional and conservation agriculture
+Practices Conventional agriculture Conservation agriculture
+Tillage, sowing and Soil is manipulated 4-5 times Soil is disturb to a minimum
+intercultural operation for tillage operation, seeding extent as tillage and inter-
+and intercultural operations. cultural operations are
+completely avoided and
+sowing is done by opening
+narrow furrow just to put seed.
+Cropping system Mono-cropping/less efficient Diversified crop rotations
+rotation
+Residue management Remove/burn Keep on soil surface
+Weed management Hand weeding and/or Herbicide application
+herbicide application
+26
+Effect of conventional and conservation agriculture based practices
+Particular Conventional agriculture Conservation agriculture
+Fuel consumption More Lesser
+Cost of land preparation More Lesser
+Sowing of succeeding crop Delay Timely
+Soil health Poor Good
+Soil compaction More Lesser
+Water logging More Lesser
+Soil erosion More Less
+a b
+Fig: (a) Zero till planting of maize in mungbean residue; (b) Surface residue retention in maize
+27
+Recommended maize varieties(released in last 6 years)
+Variety Zone Yield Maturity Season Year of
+(t/ha) (days) release
+Normal maize
+DMRH 1305 NHZ 6.5 Early Kharif 2018
+DMRH-1301 NEPZ, CWZ 9.9 94-96 Rabi 2018
+GAWMH-2 Gujarat - Early Kharif 2018
+DMRH-1308 CWZ 9.6 92-94 Rabi 2018
+Karimnagar Makka PZ 7.9 90-95 Rainfed kharif 2017
+Pant Shankar Makka-4 Uttarakhand 4.6 82-84 Kharif 2017
+Central Maize VL 55 NHZ, PZ 7.6 95-97 Kharif 2017
+PMH-10 Punjab 11.7 175-180 Spring 2016
+Hema Karnataka 5.6 120-125 Spring 2016
+Pratap Makka-9 Rajasthan 4.8 81-87 Kharif, rabi 2016
+Palam Shankar Makka-2 NHZ 9.8 Medium Kharif 2016
+Pratap Hybrid CWZ 5.6 Early Kharif 2016
+Kharif Maize-3
+Karimnagar makka-1 Telangana 9.5 Medium Kharif ,rabi 2016
+PMH-8 Punjab 8.3 112 Spring 2016
+Palam shankar makka-1 CWZ 5.3 Late Kharif 2015
+CoH(M) 10 PZ 7.2 Medium Kharif 2015
+HM-13 NHZ 6.6 Early Kharif 2015
+PMH-6 NEPZ 6.3 Medium Kharif 2015
+CoH(M) 7 NEPZ, PZ 7.8 Late Kharif 2014
+CoH(M) 8 NWPZ, NEPZ, PZ, CWZ 7.1 Medium Kharif 2014
+CoH(M) 9 NEPZ, CWZ 6.4 Medium Kharif 2014
+DHM-121 NEPZ, CWZ 5.4 Medium Kharif 2014
+GH-0727 Karnataka 7.5 Late Kharif 2014
+Vivek Maize Hybrid-47 NHZ 6.9 Early Kharif 2014
+Vivek Maize Hybrid -53 NHZ 6.9 Extra-early Kharif 2014
+Vivek Maize Hybrid -51 CWZ 5.1 Extra early Kharif 2014
+28
+Variety Zone Yield Maturity Season Year of
+(t/ha) (days) release
+QPM/EDV
+Pusa HM-8 Improved PZ 6.3 90-95 Kharif 2017
+Pusa HM-9 Improved NEPZ 5.2 85-90 2017
+Kharif
+Pusa HM-4 Improved NWPZ, NEPZ 6.4 90-95 Kharif 2017
+Pusa Vivek QPM-9 NHZ, CWZ 5.6 80-85 Kharif 2017
+Improved
+Shaktiman-5 NEPZ 5.5 Medium Kharif & 2018
+& 8.0 Rabi
+Shalimar QPMH-1 J & K 6 135 Kharif 2019
+SWEET CORN
+-
+Shalimar Sweet Corn-1 J & K 90-95 Kharif 2019
+-
+VL Sweet Corn Hybrid-2 NHZ 90-95 Kharif 2019
+10.8
+Central Maize CL Sweet NHZ, NWPZ 90-95 Kharif 2016
+Corn-1
+BABY CORN
+IMHB1539 NHZ 1.3 Short Kharif 2018
+IMHB1532 NWPZ, CWZ 2.0 Short Kharif 2018
+Vivek Hybrid 27 NHZ, CWZ 2.2 95-97 Kharif 2017
+POPCORN
+DMRHP-1402 NEPZ, CWZ 3.9 75-77 Kharif 2018
+Shalimar Pop Corn-1 NHZ, NWPZ, NEPZ, PZ 3.9 95-100 Kharif 2017
+BPCH-6 NHZ,CWZ, PZ, NEPZ, 3.2 Early Kharif 2015
+NWPZ
+29
+Notes
+30
