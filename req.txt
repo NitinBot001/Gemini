@@ -1,5 +1,4 @@
-gunicorn
-flask
-flask-cors
-requests
+Flask
+googletrans==4.0.0-rc1
 google-generativeai
+flask-cors
