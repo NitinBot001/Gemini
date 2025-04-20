@@ -1,4 +1,8 @@
 Flask
-googletrans==4.0.0-rc1
-google-generativeai
 flask-cors
+langchain
+langchain-google-genai
+google-generativeai
+faiss-cpu
+googletrans==4.0.0rc1
+tqdm
