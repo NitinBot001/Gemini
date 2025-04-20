@@ -1,30 +1,52 @@
 from flask import Flask, request, jsonify, render_template
-import google.generativeai as genai
-import os
-import requests
 from flask_cors import CORS
 from googletrans import Translator
+from langchain.document_loaders import TextLoader
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.vectorstores import FAISS
+from langchain.chains import RetrievalQA
+from langchain.prompts import PromptTemplate
+from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
+import os
 
 # Load API key from environment variable
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 if not GEMINI_API_KEY:
-    raise ValueError("Gemini API Key is missing. Set it in environment variables.")
+    raise ValueError("GEMINI_API_KEY environment variable not set")
 
-# Configure Gemini
-genai.configure(api_key=GEMINI_API_KEY)
-model = genai.GenerativeModel(model_name="gemini-2.0-flash")
-
-# Set the static folder path to the "static" folder
+# File paths
 STATIC_FOLDER = os.path.join(os.path.dirname(__file__), "static")
-
-# Read the context file from the static folder
 CONTEXT_FILE = os.path.join(STATIC_FOLDER, "context.txt")
-try:
-    with open(CONTEXT_FILE, "r", encoding="utf-8") as file:
-        CONTEXT_DATA = file.read()
-except FileNotFoundError:
-    CONTEXT_DATA = "No context available."
+INDEX_PATH = "faiss_context_index"
 
+# Load and process context
+loader = TextLoader(CONTEXT_FILE)
+documents = loader.load()
+
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=800, chunk_overlap=100)
+chunks = text_splitter.split_documents(documents)
+
+# Create or load FAISS vector store
+embeddings = GoogleGenerativeAIEmbeddings(
+    model="models/embedding-001",
+    google_api_key=GEMINI_API_KEY
+)
+
+if os.path.exists(INDEX_PATH):
+    vector_store = FAISS.load_local(INDEX_PATH, embeddings, allow_dangerous_deserialization=True)
+else:
+    vector_store = FAISS.from_documents(chunks, embeddings)
+    vector_store.save_local(INDEX_PATH)
+
+# Gemini LLM setup
+llm = ChatGoogleGenerativeAI(
+    model="gemini-1.5-flash",
+    google_api_key=GEMINI_API_KEY,
+    temperature=0.5,
+    max_tokens=512
+)
+
+# Prompt template
 SYSTEM_INSTRUCTION = """
 You are Hal, an AI assistant created to help farmers.
 Your goal is to analyze the crop data provided in the context file and assist farmers by answering their queries and solving their problems.
@@ -37,11 +59,23 @@ Response Rules:
 5. Keep responses simple, clear, and useful.
 """
 
+prompt_template = PromptTemplate(
+    input_variables=["context", "question"],
+    template=SYSTEM_INSTRUCTION + "\n\nContext:\n{context}\n\nUser Query: {question}"
+)
+
+qa_chain = RetrievalQA.from_chain_type(
+    llm=llm,
+    chain_type="stuff",
+    retriever=vector_store.as_retriever(search_kwargs={"k": 5}),
+    chain_type_kwargs={"prompt": prompt_template},
+    return_source_documents=False
+)
+
 # Flask app
 app = Flask(__name__, template_folder="templates", static_folder="static")
 CORS(app)
 
-# Translator instance
 translator = Translator()
 
 def translate_text(text, target_lang):
@@ -65,12 +99,9 @@ def chat():
         if not user_message:
             return jsonify({"error": "Message is required"}), 400
 
-        prompt = [
-            SYSTEM_INSTRUCTION,
-            f"Context Data:\n{CONTEXT_DATA}",
-            f"\n\nUser Query: {user_message}"
-        ]
-        ai_response = model.generate_content(prompt).text.strip()
+        # Use vector-based QA
+        result = qa_chain(user_message)
+        ai_response = result.strip()
 
         if target_lang.lower() != "en":
             ai_response = translate_text(ai_response, target_lang)
@@ -79,7 +110,5 @@ def chat():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-
-# For local testing, you can use the following:
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000, threaded=True)
+if __name__ == "__main__":
+    app.run(debug=True, host="0.0.0.0", port=5000, threaded=True)
