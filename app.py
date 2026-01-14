@@ -1,48 +1,11 @@
 from flask import Flask, request, jsonify
 import requests
 from urllib.parse import urlencode, urlparse, urlunparse
-from datetime import datetime, timedelta
-import random
-from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)
 
-# Cache for instances
-cached_instances = None
-cache_timestamp = None
-CACHE_DURATION = timedelta(hours=1)
-
-
-def get_invidious_instances():
-    """Fetch and cache Invidious instances from GitHub"""
-    global cached_instances, cache_timestamp
-    
-    now = datetime.now()
-    
-    # Return cached instances if still valid
-    if cached_instances and cache_timestamp and (now - cache_timestamp) < CACHE_DURATION:
-        return cached_instances
-    
-    try:
-        response = requests.get(
-            'https://raw.githubusercontent.com/n-ce/Uma/refs/heads/main/iv.json',
-            timeout=10
-        )
-        response.raise_for_status()
-        cached_instances = response.json()
-        cache_timestamp = now
-        return cached_instances
-    except Exception as e:
-        print(f'Error fetching instances: {e}')
-        return [['https://yt.omada.cafe']]
-
-
-def get_random_instance(instances):
-    """Get a random instance based on current month"""
-    current_month = datetime.now().month - 1  # 0-11
-    instance_group = instances[current_month] if current_month < len(instances) else instances[0]
-    return random.choice(instance_group)
+# Fixed Invidious instance
+INVIDIOUS_INSTANCE = 'https://yt.omada.cafe'
 
 
 def replace_googlevideo_domain(url, instance):
@@ -93,66 +56,58 @@ def get_audio_from_jiosaavn(title, artist, duration):
 
 
 def get_audio_from_invidious(query, video_id=None):
-    """Try to get audio URL from Invidious instances"""
+    """Try to get audio URL from Invidious"""
     try:
-        instances = get_invidious_instances()
         final_video_id = video_id
-        used_instance = ''
         
         # Search if no video_id provided
         if not final_video_id:
-            for attempt in range(3):
-                instance = get_random_instance(instances)
-                try:
-                    search_url = f'{instance}/api/v1/search?{urlencode({"q": query, "type": "video"})}'
-                    response = requests.get(search_url, timeout=10)
-                    
-                    if response.status_code == 200:
-                        results = response.json()
-                        if results and len(results) > 0:
-                            final_video_id = results[0]['videoId']
-                            used_instance = instance
-                            break
-                except Exception as err:
-                    print(f'Search failed on {instance}: {err}')
+            try:
+                search_url = f'{INVIDIOUS_INSTANCE}/api/v1/search?{urlencode({"q": query, "type": "video"})}'
+                response = requests.get(search_url, timeout=10)
+                
+                if response.status_code == 200:
+                    results = response.json()
+                    if results and len(results) > 0:
+                        final_video_id = results[0]['videoId']
+            except Exception as err:
+                print(f'Search failed: {err}')
+                return None
         
         if not final_video_id:
             return None
         
         # Get audio URL from video
-        for attempt in range(3):
-            instance = used_instance if used_instance else get_random_instance(instances)
-            try:
-                video_url = f'{instance}/api/v1/videos/{final_video_id}'
-                response = requests.get(video_url, timeout=10)
+        try:
+            video_url = f'{INVIDIOUS_INSTANCE}/api/v1/videos/{final_video_id}'
+            response = requests.get(video_url, timeout=10)
+            
+            if response.status_code == 200:
+                video_data = response.json()
                 
-                if response.status_code == 200:
-                    video_data = response.json()
+                # Filter audio formats
+                audio_formats = [
+                    fmt for fmt in video_data.get('adaptiveFormats', [])
+                    if fmt.get('url') and fmt.get('container') in ['m4a', 'webm']
+                ]
+                
+                if audio_formats:
+                    # Sort by bitrate (highest first)
+                    audio_formats.sort(
+                        key=lambda x: int(x.get('bitrate', 0)),
+                        reverse=True
+                    )
                     
-                    # Filter audio formats
-                    audio_formats = [
-                        fmt for fmt in video_data.get('adaptiveFormats', [])
-                        if fmt.get('url') and fmt.get('container') in ['m4a', 'webm']
-                    ]
+                    # Replace googlevideo.com domain with instance domain
+                    original_url = audio_formats[0]['url']
+                    proxied_url = replace_googlevideo_domain(original_url, INVIDIOUS_INSTANCE)
                     
-                    if audio_formats:
-                        # Sort by bitrate (highest first)
-                        audio_formats.sort(
-                            key=lambda x: int(x.get('bitrate', 0)),
-                            reverse=True
-                        )
-                        
-                        # Replace googlevideo.com domain with instance domain
-                        original_url = audio_formats[0]['url']
-                        proxied_url = replace_googlevideo_domain(original_url, instance)
-                        
-                        return {
-                            'url': proxied_url,
-                            'instance': instance
-                        }
-            except Exception as err:
-                print(f'Video fetch failed on {instance}: {err}')
-                used_instance = ''
+                    return {
+                        'url': proxied_url,
+                        'instance': INVIDIOUS_INSTANCE
+                    }
+        except Exception as err:
+            print(f'Video fetch failed: {err}')
         
         return None
     except Exception as e:
