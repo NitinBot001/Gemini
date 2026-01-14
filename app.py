@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify
 import requests
+from flask_cors import CORS
 from urllib.parse import urlencode, urlparse, urlunparse
 
 app = Flask(__name__)
+CORS(app)
 
 # Fixed Invidious instance
 INVIDIOUS_INSTANCE = 'https://yt.omada.cafe'
