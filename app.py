@@ -3,8 +3,10 @@ import requests
 from urllib.parse import urlencode, urlparse, urlunparse
 from datetime import datetime, timedelta
 import random
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 # Cache for instances
 cached_instances = None
