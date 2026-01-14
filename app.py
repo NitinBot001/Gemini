@@ -85,26 +85,40 @@ def get_audio_from_invidious(query, video_id=None):
             if response.status_code == 200:
                 video_data = response.json()
                 
-                # Filter audio formats
+                # Filter audio formats by specific itags
+                # Preferred order: 140 (m4a AAC), 251 (webm opus high), 250, 249
+                preferred_itags = ['140', '251', '250', '249']
+                
                 audio_formats = [
                     fmt for fmt in video_data.get('adaptiveFormats', [])
-                    if fmt.get('url') and fmt.get('container') in ['m4a', 'webm']
+                    if fmt.get('url') and fmt.get('itag') in preferred_itags
                 ]
                 
                 if audio_formats:
-                    # Sort by bitrate (highest first)
-                    audio_formats.sort(
-                        key=lambda x: int(x.get('bitrate', 0)),
-                        reverse=True
-                    )
+                    # Sort by preferred itag order
+                    def itag_priority(fmt):
+                        itag = fmt.get('itag')
+                        try:
+                            return preferred_itags.index(itag)
+                        except ValueError:
+                            return 999
+                    
+                    audio_formats.sort(key=itag_priority)
+                    
+                    # Get the best format
+                    best_format = audio_formats[0]
                     
                     # Replace googlevideo.com domain with instance domain
-                    original_url = audio_formats[0]['url']
+                    original_url = best_format['url']
                     proxied_url = replace_googlevideo_domain(original_url, INVIDIOUS_INSTANCE)
                     
                     return {
                         'url': proxied_url,
-                        'instance': INVIDIOUS_INSTANCE
+                        'instance': INVIDIOUS_INSTANCE,
+                        'itag': best_format.get('itag'),
+                        'bitrate': best_format.get('bitrate'),
+                        'quality': best_format.get('audioQuality'),
+                        'container': best_format.get('container')
                     }
         except Exception as err:
             print(f'Video fetch failed: {err}')
@@ -157,6 +171,29 @@ def get_audio():
                 audio_url = invidious_result['url']
                 instance = invidious_result['instance']
                 source = 'invidious'
+                
+                # Add audio format info to metadata
+                metadata = {
+                    'title': title,
+                    'artist': artist,
+                    'duration': duration,
+                    'itag': invidious_result.get('itag'),
+                    'bitrate': invidious_result.get('bitrate'),
+                    'quality': invidious_result.get('quality'),
+                    'container': invidious_result.get('container')
+                }
+            else:
+                metadata = {
+                    'title': title,
+                    'artist': artist,
+                    'duration': duration
+                }
+        else:
+            metadata = {
+                'title': title,
+                'artist': artist,
+                'duration': duration
+            }
         
         # If both failed
         if not audio_url:
@@ -172,11 +209,7 @@ def get_audio():
             'audioUrl': audio_url,
             'source': source,
             'instance': instance if source == 'invidious' else 'N/A',
-            'metadata': {
-                'title': title,
-                'artist': artist,
-                'duration': duration
-            }
+            'metadata': metadata
         }), 200, {
             'Cache-Control': 's-maxage=3600, stale-while-revalidate'
         }
