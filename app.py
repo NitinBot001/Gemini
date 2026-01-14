@@ -1,114 +1,242 @@
-from flask import Flask, request, jsonify, render_template
-from flask_cors import CORS
-from googletrans import Translator
-from langchain.document_loaders import TextLoader
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.vectorstores import FAISS
-from langchain.chains import RetrievalQA
-from langchain.prompts import PromptTemplate
-from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
-import os
+from flask import Flask, request, jsonify
+import requests
+from urllib.parse import urlencode, urlparse, urlunparse
+from datetime import datetime, timedelta
+import random
 
-# Load API key from environment variable
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-if not GEMINI_API_KEY:
-    raise ValueError("GEMINI_API_KEY environment variable not set")
+app = Flask(__name__)
 
-# File paths
-STATIC_FOLDER = os.path.join(os.path.dirname(__file__), "static")
-CONTEXT_FILE = os.path.join(STATIC_FOLDER, "context.txt")
-INDEX_PATH = "faiss_context_index"
+# Cache for instances
+cached_instances = None
+cache_timestamp = None
+CACHE_DURATION = timedelta(hours=1)
 
-# Load and process context
-loader = TextLoader(CONTEXT_FILE)
-documents = loader.load()
 
-text_splitter = RecursiveCharacterTextSplitter(chunk_size=800, chunk_overlap=100)
-chunks = text_splitter.split_documents(documents)
-
-# Create or load FAISS vector store
-embeddings = GoogleGenerativeAIEmbeddings(
-    model="models/embedding-001",
-    google_api_key=GEMINI_API_KEY
-)
-
-if os.path.exists(INDEX_PATH):
-    vector_store = FAISS.load_local(INDEX_PATH, embeddings, allow_dangerous_deserialization=True)
-else:
-    vector_store = FAISS.from_documents(chunks, embeddings)
-    vector_store.save_local(INDEX_PATH)
-
-# Gemini LLM setup
-llm = ChatGoogleGenerativeAI(
-    model="gemini-1.5-flash",
-    google_api_key=GEMINI_API_KEY,
-    temperature=0.5,
-    max_tokens=512
-)
-
-# Prompt template
-SYSTEM_INSTRUCTION = """
-You are Hal, an AI assistant created to help farmers.
-Your goal is to analyze the crop data provided in the context file and assist farmers by answering their queries and solving their problems.
-
-Response Rules:
-1. Use the context file to answer farmer-related questions.
-2. Do not share any personal information.
-3. Provide only the information available in the context file.
-4. If not found, generate helpful answers from agricultural knowledge.
-5. Keep responses simple, clear, and useful.
-"""
-
-prompt_template = PromptTemplate(
-    input_variables=["context", "question"],
-    template=SYSTEM_INSTRUCTION + "\n\nContext:\n{context}\n\nUser Query: {question}"
-)
-
-qa_chain = RetrievalQA.from_chain_type(
-    llm=llm,
-    chain_type="stuff",
-    retriever=vector_store.as_retriever(search_kwargs={"k": 5}),
-    chain_type_kwargs={"prompt": prompt_template},
-    return_source_documents=False
-)
-
-# Flask app
-app = Flask(__name__, template_folder="templates", static_folder="static")
-CORS(app)
-
-translator = Translator()
-
-def translate_text(text, target_lang):
+def get_invidious_instances():
+    """Fetch and cache Invidious instances from GitHub"""
+    global cached_instances, cache_timestamp
+    
+    now = datetime.now()
+    
+    # Return cached instances if still valid
+    if cached_instances and cache_timestamp and (now - cache_timestamp) < CACHE_DURATION:
+        return cached_instances
+    
     try:
-        translated = translator.translate(text, dest=target_lang)
-        return translated.text
+        response = requests.get(
+            'https://raw.githubusercontent.com/n-ce/Uma/refs/heads/main/iv.json',
+            timeout=10
+        )
+        response.raise_for_status()
+        cached_instances = response.json()
+        cache_timestamp = now
+        return cached_instances
     except Exception as e:
-        return f"Translation error: {str(e)}"
+        print(f'Error fetching instances: {e}')
+        return [['https://yt.omada.cafe']]
 
-@app.route("/", methods=["GET"])
-def home():
-    return render_template("index.html")
 
-@app.route("/chat", methods=["POST"])
-def chat():
+def get_random_instance(instances):
+    """Get a random instance based on current month"""
+    current_month = datetime.now().month - 1  # 0-11
+    instance_group = instances[current_month] if current_month < len(instances) else instances[0]
+    return random.choice(instance_group)
+
+
+def replace_googlevideo_domain(url, instance):
+    """Replace googlevideo.com domain with instance domain"""
     try:
-        data = request.get_json()
-        user_message = data.get("message")
-        target_lang = data.get("lang", "en")
-
-        if not user_message:
-            return jsonify({"error": "Message is required"}), 400
-
-        # Use vector-based QA
-        result = qa_chain(user_message)
-        ai_response = result.strip()
-
-        if target_lang.lower() != "en":
-            ai_response = translate_text(ai_response, target_lang)
-
-        return jsonify({"response": ai_response})
+        parsed_url = urlparse(url)
+        parsed_instance = urlparse(instance)
+        
+        # Check if it's a googlevideo.com URL
+        if 'googlevideo.com' in parsed_url.hostname:
+            # Replace hostname and protocol
+            new_url = parsed_url._replace(
+                scheme=parsed_instance.scheme,
+                netloc=parsed_instance.netloc
+            )
+            return urlunparse(new_url)
+        
+        return url
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        print(f'Error replacing domain: {e}')
+        return url
 
-if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=5000, threaded=True)
+
+def get_audio_from_jiosaavn(title, artist, duration):
+    """Try to get audio URL from JioSaavn API"""
+    try:
+        params = {
+            'title': title,
+            'artist': artist,
+            'duration': duration
+        }
+        url = f'https://fast-saavn.vercel.app/api?{urlencode(params)}'
+        
+        response = requests.get(url, timeout=8)
+        
+        if response.status_code == 200:
+            data = response.text.strip()
+            
+            # Response is like: 394/d6a62165b425ee86a78da3da48aa0e4b
+            if data and 'error' not in data.lower():
+                audio_url = f'https://aac.saavncdn.com/{data}_160.mp4'
+                return audio_url
+        
+        return None
+    except Exception as e:
+        print(f'JioSaavn failed: {e}')
+        return None
+
+
+def get_audio_from_invidious(query, video_id=None):
+    """Try to get audio URL from Invidious instances"""
+    try:
+        instances = get_invidious_instances()
+        final_video_id = video_id
+        used_instance = ''
+        
+        # Search if no video_id provided
+        if not final_video_id:
+            for attempt in range(3):
+                instance = get_random_instance(instances)
+                try:
+                    search_url = f'{instance}/api/v1/search?{urlencode({"q": query, "type": "video"})}'
+                    response = requests.get(search_url, timeout=10)
+                    
+                    if response.status_code == 200:
+                        results = response.json()
+                        if results and len(results) > 0:
+                            final_video_id = results[0]['videoId']
+                            used_instance = instance
+                            break
+                except Exception as err:
+                    print(f'Search failed on {instance}: {err}')
+        
+        if not final_video_id:
+            return None
+        
+        # Get audio URL from video
+        for attempt in range(3):
+            instance = used_instance if used_instance else get_random_instance(instances)
+            try:
+                video_url = f'{instance}/api/v1/videos/{final_video_id}'
+                response = requests.get(video_url, timeout=10)
+                
+                if response.status_code == 200:
+                    video_data = response.json()
+                    
+                    # Filter audio formats
+                    audio_formats = [
+                        fmt for fmt in video_data.get('adaptiveFormats', [])
+                        if fmt.get('url') and fmt.get('container') in ['m4a', 'webm']
+                    ]
+                    
+                    if audio_formats:
+                        # Sort by bitrate (highest first)
+                        audio_formats.sort(
+                            key=lambda x: int(x.get('bitrate', 0)),
+                            reverse=True
+                        )
+                        
+                        # Replace googlevideo.com domain with instance domain
+                        original_url = audio_formats[0]['url']
+                        proxied_url = replace_googlevideo_domain(original_url, instance)
+                        
+                        return {
+                            'url': proxied_url,
+                            'instance': instance
+                        }
+            except Exception as err:
+                print(f'Video fetch failed on {instance}: {err}')
+                used_instance = ''
+        
+        return None
+    except Exception as e:
+        print(f'Invidious failed: {e}')
+        return None
+
+
+@app.route('/api', methods=['GET'])
+def get_audio():
+    """Main API endpoint to get audio URL"""
+    
+    # Get query parameters
+    title = request.args.get('title')
+    artist = request.args.get('artist')
+    duration = request.args.get('duration')
+    q = request.args.get('q')
+    video_id = request.args.get('videoId')
+    
+    # Determine search query
+    if q:
+        query = q
+    elif title and artist:
+        query = f'{title} {artist}'
+    else:
+        return jsonify({
+            'error': 'Missing required parameters. Provide either "q" or "title" with "artist"'
+        }), 400
+    
+    try:
+        audio_url = None
+        source = ''
+        instance = ''
+        
+        # Try JioSaavn first (if title, artist, duration provided)
+        if title and artist and duration:
+            print('Attempting JioSaavn...')
+            audio_url = get_audio_from_jiosaavn(title, artist, duration)
+            if audio_url:
+                source = 'jiosaavn'
+        
+        # Fallback to Invidious if JioSaavn failed or wasn't attempted
+        if not audio_url:
+            print('Attempting Invidious...')
+            invidious_result = get_audio_from_invidious(query, video_id)
+            
+            if invidious_result:
+                audio_url = invidious_result['url']
+                instance = invidious_result['instance']
+                source = 'invidious'
+        
+        # If both failed
+        if not audio_url:
+            return jsonify({
+                'error': 'Could not fetch audio URL from any source',
+                'query': query,
+                'attemptedSources': ['jiosaavn', 'invidious']
+            }), 404
+        
+        return jsonify({
+            'success': True,
+            'query': query,
+            'audioUrl': audio_url,
+            'source': source,
+            'instance': instance if source == 'invidious' else 'N/A',
+            'metadata': {
+                'title': title,
+                'artist': artist,
+                'duration': duration
+            }
+        }), 200, {
+            'Cache-Control': 's-maxage=3600, stale-while-revalidate'
+        }
+    
+    except Exception as e:
+        print(f'Error: {e}')
+        return jsonify({
+            'error': 'Internal Server Error',
+            'message': str(e)
+        }), 500
+
+
+@app.route('/health', methods=['GET'])
+def health():
+    """Health check endpoint"""
+    return jsonify({'status': 'ok'}), 200
+
+
+if __name__ == '__main__':
+    app.run(debug=True, port=5000)
