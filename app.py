@@ -82,7 +82,7 @@ def get_audio_from_invidious(video_id):
 @app.route('/api', methods=['GET'])
 def get_audio_url():
     # 1. Capture Inputs
-    video_id = request.args.get('v')
+    video_id = request.args.get('videoId')
     q = request.args.get('q')
     title = request.args.get('title')
     artist = request.args.get('artist')
