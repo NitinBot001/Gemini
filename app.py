@@ -1,15 +1,12 @@
 from flask import Flask, request, jsonify
 import requests
 from flask_cors import CORS
-import os
 from urllib.parse import urlencode, urlparse, urlunparse
 
 app = Flask(__name__)
 CORS(app)
 
-# --- CONFIGURATION ---
-API_KEY = os.getenv("RAPIDAPI_KEY")
-FALLBACK_API = os.getenv("FALLBACK_API")
+# Fixed Invidious instance
 INVIDIOUS_INSTANCE = 'https://yt.omada.cafe'
 
 
@@ -35,13 +32,10 @@ def replace_googlevideo_domain(url, instance):
 
 
 def get_audio_from_jiosaavn(title, artist, duration):
-    """Try to get audio URL from JioSaavn API (PRIMARY SOURCE)"""
+    """Try to get audio URL from JioSaavn API"""
     try:
-        # Clean title for better matching
-        clean_title = title.split('(')[0].strip()
-        
         params = {
-            'title': clean_title,
+            'title': title,
             'artist': artist,
             'duration': duration
         }
@@ -53,16 +47,9 @@ def get_audio_from_jiosaavn(title, artist, duration):
             data = response.text.strip()
             
             # Response is like: 394/d6a62165b425ee86a78da3da48aa0e4b
-            if data and 'error' not in data.lower() and len(data) > 5:
+            if data and 'error' not in data.lower():
                 audio_url = f'https://aac.saavncdn.com/{data}_160.mp4'
-                return {
-                    'url': audio_url,
-                    'instance': 'jiosaavn',
-                    'itag': None,
-                    'bitrate': 160000,  # JioSaavn uses 160kbps
-                    'quality': 'AUDIO_QUALITY_MEDIUM',
-                    'container': 'mp4'
-                }
+                return audio_url
         
         return None
     except Exception as e:
@@ -70,95 +57,77 @@ def get_audio_from_jiosaavn(title, artist, duration):
         return None
 
 
-def get_audio_from_invidious(video_id):
-    """Try to get audio URL from Invidious (SECONDARY SOURCE)"""
+def get_audio_from_invidious(query, video_id=None):
+    """Try to get audio URL from Invidious"""
     try:
-        # Get audio URL from video
-        video_url = f'{INVIDIOUS_INSTANCE}/api/v1/videos/{video_id}'
-        response = requests.get(video_url, timeout=10)
+        final_video_id = video_id
         
-        if response.status_code == 200:
-            video_data = response.json()
+        # Search if no video_id provided
+        if not final_video_id:
+            try:
+                search_url = f'{INVIDIOUS_INSTANCE}/api/v1/search?{urlencode({"q": query, "type": "video"})}'
+                response = requests.get(search_url, timeout=10)
+                
+                if response.status_code == 200:
+                    results = response.json()
+                    if results and len(results) > 0:
+                        final_video_id = results[0]['videoId']
+            except Exception as err:
+                print(f'Search failed: {err}')
+                return None
+        
+        if not final_video_id:
+            return None
+        
+        # Get audio URL from video
+        try:
+            video_url = f'{INVIDIOUS_INSTANCE}/api/v1/videos/{final_video_id}'
+            response = requests.get(video_url, timeout=10)
             
-            # Filter audio formats by specific itags
-            # Preferred order: 140 (m4a AAC), 251 (webm opus high), 250, 249
-            preferred_itags = ['140', '251', '250', '249']
-            
-            audio_formats = [
-                fmt for fmt in video_data.get('adaptiveFormats', [])
-                if fmt.get('url') and fmt.get('itag') in preferred_itags
-            ]
-            
-            if audio_formats:
-                # Sort by preferred itag order
-                def itag_priority(fmt):
-                    itag = fmt.get('itag')
-                    try:
-                        return preferred_itags.index(itag)
-                    except ValueError:
-                        return 999
+            if response.status_code == 200:
+                video_data = response.json()
                 
-                audio_formats.sort(key=itag_priority)
+                # Filter audio formats by specific itags
+                # Preferred order: 140 (m4a AAC), 251 (webm opus high), 250, 249
+                preferred_itags = ['140', '251', '250', '249']
                 
-                # Get the best format
-                best_format = audio_formats[0]
+                audio_formats = [
+                    fmt for fmt in video_data.get('adaptiveFormats', [])
+                    if fmt.get('url') and fmt.get('itag') in preferred_itags
+                ]
                 
-                # Replace googlevideo.com domain with instance domain
-                original_url = best_format['url']
-                proxied_url = replace_googlevideo_domain(original_url, INVIDIOUS_INSTANCE)
-                
-                return {
-                    'url': proxied_url,
-                    'instance': INVIDIOUS_INSTANCE,
-                    'itag': best_format.get('itag'),
-                    'bitrate': best_format.get('bitrate'),
-                    'quality': best_format.get('audioQuality'),
-                    'container': best_format.get('container')
-                }
+                if audio_formats:
+                    # Sort by preferred itag order
+                    def itag_priority(fmt):
+                        itag = fmt.get('itag')
+                        try:
+                            return preferred_itags.index(itag)
+                        except ValueError:
+                            return 999
+                    
+                    audio_formats.sort(key=itag_priority)
+                    
+                    # Get the best format
+                    best_format = audio_formats[0]
+                    
+                    # Replace googlevideo.com domain with instance domain
+                    original_url = best_format['url']
+                    proxied_url = replace_googlevideo_domain(original_url, INVIDIOUS_INSTANCE)
+                    
+                    return {
+                        'url': proxied_url,
+                        'instance': INVIDIOUS_INSTANCE,
+                        'itag': best_format.get('itag'),
+                        'bitrate': best_format.get('bitrate'),
+                        'quality': best_format.get('audioQuality'),
+                        'container': best_format.get('container')
+                    }
+        except Exception as err:
+            print(f'Video fetch failed: {err}')
         
         return None
     except Exception as e:
         print(f'Invidious failed: {e}')
-        return None
-
-
-def get_audio_from_rapidapi(video_id):
-    """Try to get audio URL from RapidAPI (FINAL FALLBACK)"""
-    try:
-        if not API_KEY:
-            print('RapidAPI: No API key configured')
-            return None
-        
-        url = "https://youtube-mp36.p.rapidapi.com/dl"
-        querystring = {"id": video_id}
-        headers = {
-            "x-rapidapi-key": API_KEY,
-            "x-rapidapi-host": "youtube-mp36.p.rapidapi.com"    
-        }
-
-        response = requests.get(url, headers=headers, params=querystring, timeout=10)
-        
-        # Retry with fallback API key if primary fails
-        if response.status_code != 200 and FALLBACK_API:
-            print('RapidAPI: Primary key failed, trying fallback key')
-            headers["x-rapidapi-key"] = FALLBACK_API
-            response = requests.get(url, headers=headers, params=querystring, timeout=10)
-
-        if response.status_code == 200:
-            data = response.json()
-            if data.get('link'):
-                return {
-                    'url': data.get('link'),
-                    'instance': 'rapidapi',
-                    'itag': None,
-                    'bitrate': None,
-                    'quality': data.get('quality', 'AUDIO_QUALITY_MEDIUM'),
-                    'container': 'mp3'
-                }
-        
-        return None
-    except Exception as e:
-        print(f'RapidAPI failed: {e}')
         return None
 
 
@@ -167,66 +136,85 @@ def get_audio():
     """Main API endpoint to get audio URL"""
     
     # Get query parameters
-    video_id = request.args.get('v') or request.args.get('videoId')
-    title = request.args.get('title') or request.args.get('track_name')
-    artist = request.args.get('artist') or request.args.get('artist_name')
+    title = request.args.get('title')
+    artist = request.args.get('artist')
     duration = request.args.get('duration')
     q = request.args.get('q')
+    video_id = request.args.get('videoId')
     
-    # Validation: v is REQUIRED
-    if not video_id:
+    # Determine search query
+    if q:
+        query = q
+    elif title and artist:
+        query = f'{title} {artist}'
+    else:
         return jsonify({
-            'error': 'Missing required parameter "v" (video ID)'
-        }), 400
-    
-    # Validation: Either q OR (title AND artist) is REQUIRED
-    has_query = bool(q)
-    has_metadata = bool(title and artist)
-    
-    if not has_query and not has_metadata:
-        return jsonify({
-            'error': 'Missing search parameters. Provide either "q" OR both "title" and "artist"'
+            'error': 'Missing required parameters. Provide either "q" or "title" with "artist"'
         }), 400
     
     try:
-        result = None
+        audio_url = None
+        source = ''
+        instance = ''
         
-        # ==========================================
-        # PHASE 1: JIOSAAVN (PRIMARY - Fastest & Free)
-        # ==========================================
-        if has_metadata and duration:
-            print(f'[1/3] Attempting JioSaavn for: {title} - {artist}')
-            result = get_audio_from_jiosaavn(title, artist, duration)
-            if result:
-                print(f'✓ JioSaavn success')
-                return jsonify(result)
+        # Try JioSaavn first (if title, artist, duration provided)
+        if title and artist and duration:
+            print('Attempting JioSaavn...')
+            audio_url = get_audio_from_jiosaavn(title, artist, duration)
+            if audio_url:
+                source = 'jiosaavn'
         
-        # ==========================================
-        # PHASE 2: INVIDIOUS (SECONDARY - Free Proxy)
-        # ==========================================
-        if not result:
-            print(f'[2/3] Attempting Invidious for video ID: {video_id}')
-            result = get_audio_from_invidious(video_id)
-            if result:
-                print(f'✓ Invidious success')
-                return jsonify(result)
+        # Fallback to Invidious if JioSaavn failed or wasn't attempted
+        if not audio_url:
+            print('Attempting Invidious...')
+            invidious_result = get_audio_from_invidious(query, video_id)
+            
+            if invidious_result:
+                audio_url = invidious_result['url']
+                instance = invidious_result['instance']
+                source = 'invidious'
+                
+                # Add audio format info to metadata
+                metadata = {
+                    'title': title,
+                    'artist': artist,
+                    'duration': duration,
+                    'itag': invidious_result.get('itag'),
+                    'bitrate': invidious_result.get('bitrate'),
+                    'quality': invidious_result.get('quality'),
+                    'container': invidious_result.get('container')
+                }
+            else:
+                metadata = {
+                    'title': title,
+                    'artist': artist,
+                    'duration': duration
+                }
+        else:
+            metadata = {
+                'title': title,
+                'artist': artist,
+                'duration': duration
+            }
         
-        # ==========================================
-        # PHASE 3: RAPIDAPI (FINAL FALLBACK - Paid)
-        # ==========================================
-        if not result:
-            print(f'[3/3] Attempting RapidAPI for video ID: {video_id}')
-            result = get_audio_from_rapidapi(video_id)
-            if result:
-                print(f'✓ RapidAPI success')
-                return jsonify(result)
+        # If both failed
+        if not audio_url:
+            return jsonify({
+                'error': 'Could not fetch audio URL from any source',
+                'query': query,
+                'attemptedSources': ['jiosaavn', 'invidious']
+            }), 404
         
-        # ==========================================
-        # ALL SOURCES FAILED
-        # ==========================================
         return jsonify({
-            'error': 'Could not fetch audio URL from any source'
-        }), 404
+            'success': True,
+            'query': query,
+            'audioUrl': audio_url,
+            'source': source,
+            'instance': instance if source == 'invidious' else 'N/A',
+            'metadata': metadata
+        }), 200, {
+            'Cache-Control': 's-maxage=3600, stale-while-revalidate'
+        }
     
     except Exception as e:
         print(f'Error: {e}')
