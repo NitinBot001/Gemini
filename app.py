@@ -79,7 +79,7 @@ def get_audio_from_invidious(video_id):
         return None
 
 # --- MAIN ROUTE ---
-@app.route('/get_audio_url', methods=['GET'])
+@app.route('/api', methods=['GET'])
 def get_audio_url():
     # 1. Capture Inputs
     video_id = request.args.get('v')
