@@ -167,7 +167,7 @@ def get_audio():
     """Main API endpoint to get audio URL"""
     
     # Get query parameters
-    video_id = request.args.get('v') or request.args.get('videoId)
+    video_id = request.args.get('v') or request.args.get('videoId')
     title = request.args.get('title')
     artist = request.args.get('artist')
     duration = request.args.get('duration')
