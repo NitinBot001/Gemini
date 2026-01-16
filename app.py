@@ -168,8 +168,8 @@ def get_audio():
     
     # Get query parameters
     video_id = request.args.get('v') or request.args.get('videoId')
-    title = request.args.get('title')
-    artist = request.args.get('artist')
+    title = request.args.get('title') or request.args.get('track_name')
+    artist = request.args.get('artist') or request.args.get('artist_name')
     duration = request.args.get('duration')
     q = request.args.get('q')
     
